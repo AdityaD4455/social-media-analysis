@@ -1,0 +1,106 @@
+/* ─── ENTRANCE ANIMATIONS ──────────────────────────────────────── */
+.fade-in {
+  animation: fadeIn .5s var(--ease-smooth) both;
+}
+.fade-in-up {
+  animation: fadeInUp .5s var(--ease-smooth) both;
+}
+.scale-in {
+  animation: scaleIn .4s var(--ease-spring) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Stagger children */
+.stagger > * { animation: fadeInUp .4s var(--ease-smooth) both; }
+.stagger > *:nth-child(1) { animation-delay: .05s; }
+.stagger > *:nth-child(2) { animation-delay: .10s; }
+.stagger > *:nth-child(3) { animation-delay: .15s; }
+.stagger > *:nth-child(4) { animation-delay: .20s; }
+.stagger > *:nth-child(5) { animation-delay: .25s; }
+.stagger > *:nth-child(6) { animation-delay: .30s; }
+
+/* Number count-up */
+.count-up { transition: all .8s var(--ease-smooth); }
+
+/* Glow pulse on hover */
+.glow-hover {
+  transition: box-shadow .3s;
+}
+.glow-hover:hover {
+  box-shadow: 0 0 24px rgba(99,102,241,.25), var(--shadow-card);
+}
+
+/* Chart load animation */
+.chart-body canvas {
+  animation: fadeIn .6s var(--ease-smooth) both .1s;
+}
+
+/* KPI card entrance */
+.kpi-card:nth-child(1) { animation-delay: .05s; }
+.kpi-card:nth-child(2) { animation-delay: .10s; }
+.kpi-card:nth-child(3) { animation-delay: .15s; }
+.kpi-card:nth-child(4) { animation-delay: .20s; }
+.kpi-card:nth-child(5) { animation-delay: .25s; }
+.kpi-card:nth-child(6) { animation-delay: .30s; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glow borders */
+.glow-border {
+  box-shadow: 0 0 0 1px rgba(99,102,241,.3), 0 0 20px rgba(99,102,241,.1);
+}
+
+/* Loading overlay on buttons */
+.btn-loading {
+  position: relative; pointer-events: none;
+}
+.btn-loading::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: inherit; border-radius: inherit;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Refresh spin */
+.spin {
+  animation: spin .6s linear infinite;
+}
+
+/* Live badge blink */
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+.blink { animation: blink 1.2s step-end infinite; }
+
+/* Number up animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Chart grid line glow */
+.chartjs-render-monitor { transition: opacity .3s; }
